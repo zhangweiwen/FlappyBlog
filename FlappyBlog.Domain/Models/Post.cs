@@ -7,9 +7,9 @@ namespace FlappyBlog.Domain.Models
     {
         public virtual string Title { get; set; }
 
-        public virtual int ViewCount { get; set; }
+        public virtual int VisitCount { get; set; }
 
-        public virtual string Context { get; set; }
+        public virtual string Content { get; set; }
 
         public virtual string Summary { get; set; }
 
@@ -17,7 +17,7 @@ namespace FlappyBlog.Domain.Models
 
         public virtual int CommentCount { get; set; }
 
-        public virtual string CustomerUrl { get; set; }
+        public virtual string CustomUrl { get; set; }
 
         public virtual DateTime CreatedDate { get; set; }
 
@@ -44,11 +44,6 @@ namespace FlappyBlog.Domain.Models
         public virtual bool Recommend { get; set; }
 
         public virtual bool DisableComment { get; set; }
-
-    }
-
-    public partial class Post
-    {
 
     }
 }

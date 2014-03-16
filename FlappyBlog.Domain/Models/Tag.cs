@@ -2,7 +2,7 @@
 
 namespace FlappyBlog.Domain.Models
 {
-    public class Tag
+    public class Tag : DomainObject
     {
         public virtual string Name { get; set; }
 

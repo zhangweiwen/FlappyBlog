@@ -5,14 +5,14 @@ namespace FlappyBlog.Domain.Models
     [Serializable]
     public partial class DomainObject
     {
-        public virtual int ID { get; set; }
+        public virtual int Id { get; set; }
     }
 
     public partial class DomainObject
     {
         public override int GetHashCode()
         {
-            return ID.GetHashCode();
+            return Id.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -31,7 +31,7 @@ namespace FlappyBlog.Domain.Models
 
         protected bool Equals(DomainObject other)
         {
-            return ID.Equals(other.ID);
+            return Id.Equals(other.Id);
         }
     }
 }
