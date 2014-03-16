@@ -1,0 +1,6 @@
+2014-03-15 17:05:53.3293|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/admin
+2014-03-15 17:05:54.3560|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/static/bootstrap/css/bootstrap.min.css
+2014-03-15 17:05:54.3990|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/static/css/account.css
+2014-03-15 17:05:54.4030|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/static/img/logo.png
+2014-03-15 17:05:54.4190|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/static/js/login.js
+2014-03-15 17:05:54.4030|INFO|FlappyBlog.Mvc.TestMoudle|http://localhost:1232/static/js/jquery.min.js

@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" class="login_page">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gebo Admin Panel - Login Page</title>
+        <!-- Bootstrap framework -->
+        @Styles.Render("~/bootstrap/css/bootstrap.min.css")
+        <!-- theme color-->
+         @Styles.Render("~/css/blue.css")
+        <!-- tooltip -->
+        @*<link rel="stylesheet" href="lib/qtip2/jquery.qtip.min.css" />*@
+        <!-- main styles -->
+         @Styles.Render("~/css/style.css")
+        <!-- favicon -->
+        @*<link rel="shortcut icon" href="favicon.ico" />*@
+        @*<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>*@
+        <!--[if lt IE 9]>
+            @Scripts.Render("~/js/ie/html5.js")
+            @Scripts.Render("~/js/ie/respond.min.js")
+        <![endif]-->
+    </head>
+<body>
+    <div class="login_box">
+        <form action="index.php?uid=1&amp;page=dashboard" method="post" id="login_form">
+            <div class="top_b">
+                Sign in to Gebo Admin</div>
+            <div class="alert alert-info alert-login">
+                Clear username and password field to see validation.
+            </div>
+            <div class="cnt_b">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm"><i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        <input class="form-control input-sm" type="text" id="username" name="username" placeholder="Username"
+                               value="John Smith" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon input-sm"><i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input class="form-control input-sm" type="password" id="password" name="password"
+                               placeholder="Password" value="password" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" />
+                        Remember me</label>
+                </div>
+            </div>
+            <div class="btm_b clearfix">
+                <button class="btn btn-default btn-sm pull-right" type="submit">
+                    Sign In</button>
+                <span class="link_reg"><a href="#reg_form">Not registered? Sign up here</a></span>
+            </div>
+        </form>
+        <div class="links_b links_btm clearfix">
+            <span class="linkform"><a href="#pass_form">Forgot password?</a></span> 
+            <span class="linkform" style="display: none">Never mind, <a href="#login_form">send me back to the sign-inscreen</a></span>
+        </div>
+    </div>
+    @Scripts.Render("~/js/jquery.min.js")
+    @Scripts.Render("~/js/jquery.actual.min.js")
+    @Scripts.Render("~/lib/validation/jquery.validate.js")
+    @Scripts.Render("~/bootstrap/js/bootstrap.min.js")
+    <script>
+        $(document).ready(function () {
+            //* boxes animation
+            var form_wrapper = $('.login_box');
+            function boxHeight() {
+                form_wrapper.animate({ marginTop: (-(form_wrapper.height() / 2) - 24) }, 400);
+            };
+            form_wrapper.css({ marginTop: (-(form_wrapper.height() / 2) - 24) });
+            $('.linkform a,.link_reg a').on('click', function (e) {
+                var target = $(this).attr('href'),
+						target_height = $(target).actual('height');
+                $(form_wrapper).css({
+                    'height': form_wrapper.height()
+                });
+                $(form_wrapper.find('form:visible')).fadeOut(400, function () {
+                    form_wrapper.stop().animate({
+                        height: target_height,
+                        marginTop: (-(target_height / 2) - 24)
+                    }, 500, function () {
+                        $(target).fadeIn(400);
+                        $('.links_btm .linkform').toggle();
+                        $(form_wrapper).css({
+                            'height': ''
+                        });
+                    });
+                });
+                e.preventDefault();
+            });
+
+            //* validation
+            $('#login_form').validate({
+                onkeyup: false,
+                errorClass: 'error',
+                validClass: 'valid',
+                rules: {
+                    username: { required: true, minlength: 3 },
+                    password: { required: true, minlength: 3 }
+                },
+                highlight: function (element) {
+                    $(element).closest('div').addClass("f_error");
+                    setTimeout(function () {
+                        boxHeight();
+                    }, 200);
+                },
+                unhighlight: function (element) {
+                    $(element).closest('div').removeClass("f_error");
+                    setTimeout(function () {
+                        boxHeight();
+                    }, 200);
+                },
+                errorPlacement: function (error, element) {
+                    $(element).closest('div').append(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
