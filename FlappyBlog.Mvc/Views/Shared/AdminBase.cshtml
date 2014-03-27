@@ -9,38 +9,11 @@
         <meta name="generator" content="FlappyBlog" />
         <title>@ViewBag.Title</title>
         @Styles.Render("~/static/bootstrap/css/bootstrap.min.css")
+        @Styles.Render("~/static/css/admin.css")
         <!--[if lt IE 9]>
             @Scripts.Render("~/static/js/html5shiv.min.js")
             @Scripts.Render("~/static/js/respond.min.js")
         <![endif]-->
-        <style type="text/css">
-            body { font-family: "微软雅黑","宋体", Arial, Helvetica, sans-serif; }
-            #header {
-                border-bottom: 5px solid white;
-                height: 90px;
-                padding: 0;
-                background: #39b3d7;
-                -ms-border-radius: 4px;
-                border-radius: 4px;
-            }
-
-            .logo  {
-                width: 190px;
-                height: 62px;
-                padding: 10px 0 0 0;
-                left: 20px;
-            }
-            #leftmenu .menu { margin-bottom: 5px;}
-            #leftmenu .menu div{ padding: 0; }
-            #leftmenu .menu button{ font-size: 16px;}
-            #leftmenu .menu button span { margin-left: 10px; }
-        
-            #main #mainHeader div { padding-right: 0; }
-            #main #mainHeader div div{ font-size: 1.5em; padding-left: 10px; margin: 0; padding: 5px 0 5px 10px;}
-        
-            #footer div { padding-left: 0;padding-right: 0;text-align: center;font-size: 15px; }
-            #footer div div { padding: 5px 0 5px 0; }
-        </style>
     </head>
     <body>
         <div class="container">
@@ -51,81 +24,66 @@
                     </div>
                 </div>
             </div>
-            <div id="middle" class="row">
+            <div id="warp" class="row">
                 <div id="leftmenu" class="col-md-2">
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                新建文章   
-                                <span class="glyphicon glyphicon-pencil"></span> 
+                                新建文章 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                文章管理
-                                <span class="glyphicon glyphicon-file"></span> 
+                                文章管理 <span class="glyphicon glyphicon-file"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                页面管理
-                                <span class="glyphicon glyphicon-link"></span> 
+                                页面管理 <span class="glyphicon glyphicon-link"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                分类管理                                
-                                <span class="glyphicon glyphicon-folder-open"></span> 
+                                分类管理 <span class="glyphicon glyphicon-folder-open"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                标签管理                                
-                                <span class="glyphicon glyphicon-tags"></span> 
+                                标签管理 <span class="glyphicon glyphicon-tags"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                评论管理                                
-                                <span class="glyphicon glyphicon-comment"></span> 
+                                评论管理 <span class="glyphicon glyphicon-comment"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="row menu" >
+                    <div class="row menu">
                         <div class="col-md-12">
                             <button type="button" class="btn btn-info btn-block">
-                                用户管理                                
-                                <span class="glyphicon glyphicon-user"></span> 
+                                用户管理 <span class="glyphicon glyphicon-user"></span>
                             </button>
                         </div>
                     </div>
                 </div>
-                <div id="main" class="col-md-10">
-                    @RenderBody()        
-                </div>
-            </div>
-            <div id="footer" class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-info">
-                        Powered by <a href="#" title="FlappyBlog" target="_blank">FlappyBlog</a>
-                        <br/>
-                        Copyright Your WebSite. Some Rights Reserved.
-                    </div>
+                <div id="content" class="col-md-10">
+                    <div id="headerInfo" class="alert alert-info">@ViewBag.Title</div>
+                    @RenderBody()
                 </div>
             </div>
         </div>
         @Scripts.Render("~/static/js/jquery-1.11.0.min.js")
         @Scripts.Render("~/static/bootstrap/js/bootstrap.min.js")
-        @RenderSection("scripts",false)
+        @RenderSection("scripts", false)
     </body>
 </html>

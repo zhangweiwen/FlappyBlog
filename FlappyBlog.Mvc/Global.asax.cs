@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using FlappyBlog.Mvc.App_Start;
 
 namespace FlappyBlog.Mvc
 {
@@ -16,6 +17,7 @@ namespace FlappyBlog.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //IocHelper.Init();
         }
     }
 }

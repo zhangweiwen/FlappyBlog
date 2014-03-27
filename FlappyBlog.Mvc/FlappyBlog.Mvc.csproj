@@ -40,10 +40,28 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy2">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy2.3.0.3\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.2\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
@@ -122,9 +140,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\AopInterceptor.cs" />
+    <Compile Include="App_Start\IocHelper.cs" />
+    <Compile Include="Core\SessionPerRequestAttribute.cs" />
+    <Compile Include="Core\SqlInterceptor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="NLog-NHibernate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestMoudle.cs" />
   </ItemGroup>
@@ -144,6 +167,7 @@
     <Content Include="static\bootstrap\js\bootstrap.js" />
     <Content Include="static\bootstrap\js\bootstrap.min.js" />
     <Content Include="static\css\account.css" />
+    <Content Include="static\css\admin.css" />
     <Content Include="static\css\blue.css" />
     <Content Include="static\css\brown.css" />
     <Content Include="static\css\dark.css" />
@@ -332,6 +356,17 @@
     <None Include="static\js\jquery-1.11.0.min.map" />
     <Content Include="Views\Shared\AccountBase.cshtml" />
     <Content Include="Views\Shared\AdminBase.cshtml" />
+    <Content Include="Views\Admin\Tag.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlappyBlog.Application\FlappyBlog.Application.csproj">
+      <Project>{C3A0A871-7426-4346-A9D5-0EF1FF696986}</Project>
+      <Name>FlappyBlog.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlappyBlog.Domain\FlappyBlog.Domain.csproj">
+      <Project>{A5968738-2E12-4108-A153-9B908F735668}</Project>
+      <Name>FlappyBlog.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
