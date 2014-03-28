@@ -1,6 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
+// ReSharper disable once CheckNamespace
 namespace FlappyBlog.Mvc
 {
     public class FilterConfig

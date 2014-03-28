@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/Base.cshtml";
+}
+@section style
+{
+    @Styles.Render("~/static/bootstrap/css/bootstrap-switch.min.css")
+    @Styles.Render("~/static/css/account.css")
+}
+@section scripts
+{
+    @Scripts.Render("~/static/bootstrap/js/bootstrap-switch.min.js")
+    @Scripts.Render("~/static/js/account.js")
+}
+<div class="container">
+    @RenderBody()            
+</div>

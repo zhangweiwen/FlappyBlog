@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace FlappyBlog.Mvc
@@ -13,11 +9,13 @@ namespace FlappyBlog.Mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            var route = routes.MapRoute(
+                 name: "Default",
+                 url: "{controller}/{action}/{id}",
+                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                 namespaces: new[] { "FlappyBlog.Mvc.Areas.Home.Controllers" }
+             );
+            route.DataTokens["area"] = "Home";
         }
     }
 }

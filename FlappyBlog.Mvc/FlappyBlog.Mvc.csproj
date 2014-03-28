@@ -138,8 +138,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PasswordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TagController.cs" />
+    <Compile Include="Areas\Home\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Core\AopInterceptor.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
     <Compile Include="Core\SessionPerRequestAttribute.cs" />
@@ -147,14 +152,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="NLog-NHibernate.cs" />
+    <Compile Include="Core\NLog-NHibernate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestMoudle.cs" />
+    <Compile Include="Core\TestMoudle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-1.11.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.11.0.js" />
-    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Areas\Home\Views\Home\Index.aspx" />
     <Content Include="static\bootstrap\css\bootstrap-switch.css" />
     <Content Include="static\bootstrap\css\bootstrap-switch.min.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
@@ -320,10 +323,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -333,13 +332,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Home\Models\" />
+    <Folder Include="Areas\Home\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\jquery-1.11.0.min.map" />
+    <Content Include="Areas\Home\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AccountBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AdminBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Base.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Password\Index.cshtml" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -349,14 +359,7 @@
     <None Include="static\img\font-awesome\font\fontawesome-webfont.eot縱=3.2.1.eot" />
     <None Include="static\img\font-awesome\font\fontawesome-webfont.ttf縱=3.2.1.ttf" />
     <None Include="static\img\font-awesome\font\fontawesome-webfont.woff縱=3.2.1.woff" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Password.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <None Include="static\js\jquery-1.11.0.min.map" />
-    <Content Include="Views\Shared\AccountBase.cshtml" />
-    <Content Include="Views\Shared\AdminBase.cshtml" />
-    <Content Include="Views\Admin\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlappyBlog.Application\FlappyBlog.Application.csproj">

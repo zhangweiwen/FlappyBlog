@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
-using FlappyBlog.Mvc.Core;
 
-namespace FlappyBlog.Mvc.Controllers
+namespace FlappyBlog.Mvc.Areas.Admin.Controllers
 {
-    [SessionPerRequest]
     public class HomeController : Controller
     {
         public ActionResult Index()

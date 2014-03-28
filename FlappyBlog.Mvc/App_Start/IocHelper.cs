@@ -11,6 +11,7 @@ namespace FlappyBlog.Mvc.App_Start
     public class IocHelper
     {
         private const string DbScriptFile = @"db.sql";
+
         private static readonly ContainerBuilder Builder = new ContainerBuilder();
 
         public static IContainer Container { get; private set; }

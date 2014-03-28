@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/Base.cshtml";
+}
+@section style
+{
+    @Styles.Render("~/static/css/admin.css")
+}
+<div class="container">
+    <div id="header" class="row">
+        <div class="col-md-12">
+            <div class="logo">
+                <img src="@Url.Content("~/static/img/zlogo.png")" alt="Z-Blog" />
+            </div>
+        </div>
+    </div>
+    <div id="warp" class="row">
+        <div id="leftmenu" class="col-md-2">
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        新建文章 <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        文章管理 <span class="glyphicon glyphicon-file"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        页面管理 <span class="glyphicon glyphicon-link"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        分类管理 <span class="glyphicon glyphicon-folder-open"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        标签管理 <span class="glyphicon glyphicon-tags"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        评论管理 <span class="glyphicon glyphicon-comment"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="row menu">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-info btn-block">
+                        用户管理 <span class="glyphicon glyphicon-user"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="col-md-10">
+            <div id="headerInfo" class="alert alert-info">@ViewBag.Title</div>
+            @RenderBody()
+        </div>
+    </div>
+</div>
