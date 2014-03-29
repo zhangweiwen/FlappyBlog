@@ -9,5 +9,11 @@ namespace FlappyBlog.Infrastructure.Exceptions
         {
 
         }
+
+        public override string ToString()
+        {
+            const string format = "Type => {0}, Message => {1}";
+            return string.Format(format, GetType().Name, Message);
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Web;
 using NLog;
 
-namespace FlappyBlog.Mvc
+namespace FlappyBlog.Mvc.Core
 {
     public class TestMoudle : IHttpModule
     {

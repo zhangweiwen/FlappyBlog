@@ -58,7 +58,6 @@
     <Compile Include="Implements\TagService.cs" />
     <Compile Include="ITagService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responses\BaseResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

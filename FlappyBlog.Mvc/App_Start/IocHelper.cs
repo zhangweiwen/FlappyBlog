@@ -1,5 +1,9 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy2;
+using FlappyBlog.Application;
+using FlappyBlog.Application.Implements;
 using FlappyBlog.Domain.Mappings;
+using FlappyBlog.Infrastructure.Aop;
 using FlappyBlog.Mvc.Core;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -10,7 +14,7 @@ namespace FlappyBlog.Mvc.App_Start
 {
     public class IocHelper
     {
-        private const string DbScriptFile = @"db.sql";
+        private const string DbScriptFile = @"flappy-blog.sql";
 
         private static readonly ContainerBuilder Builder = new ContainerBuilder();
 
@@ -19,6 +23,7 @@ namespace FlappyBlog.Mvc.App_Start
         public static void Init()
         {
             RegisteNHibernate();
+            RegisteInterceptor();
             RegisteAppServices();
             Container = Builder.Build();
         }
@@ -28,9 +33,23 @@ namespace FlappyBlog.Mvc.App_Start
             Builder.Register(c => BuildSessionFactory()).As<ISessionFactory>().SingleInstance();
         }
 
+        private static void RegisteInterceptor()
+        {
+            Builder.RegisterType<Log4NetLogger>().AsSelf();
+            Builder.RegisterType<WatchInterceptor>().AsSelf();
+            Builder.RegisterType<NHibernateInterceptor>().AsSelf();
+        }
+
         private static void RegisteAppServices()
         {
- 
+            Builder.Register(c =>
+            {
+                var sessionFactory = c.Resolve<ISessionFactory>();
+                var session = sessionFactory.GetCurrentSession();
+                return new TagService { Session = session };
+            }).As<ITagService>()
+            .EnableInterfaceInterceptors()
+            .InterceptedBy(typeof(WatchInterceptor), typeof(NHibernateInterceptor), typeof(Log4NetLogger));
         }
 
         public static ISessionFactory BuildSessionFactory(bool buildTables = false)
@@ -41,7 +60,6 @@ namespace FlappyBlog.Mvc.App_Start
                 .CurrentSessionContext("web")
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserMap>()).ExposeConfiguration(c =>
                 {
-                    c.SetInterceptor(new SqlInterceptor());
                     if (buildTables)
                     {
                         var schema = new SchemaExport(c);

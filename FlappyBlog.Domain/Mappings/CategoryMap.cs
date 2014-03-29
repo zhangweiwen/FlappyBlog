@@ -9,7 +9,7 @@ namespace FlappyBlog.Domain.Mappings
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            Map(x => x.Order);
+            Map(x => x.Order).Column("OrderBy");
             Map(x => x.PostCount);
             Map(x => x.Description);
             Map(x => x.CreatedDate);

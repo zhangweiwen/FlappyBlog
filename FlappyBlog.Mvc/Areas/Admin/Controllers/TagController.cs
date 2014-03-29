@@ -8,13 +8,9 @@ namespace FlappyBlog.Mvc.Areas.Admin.Controllers
 {
     public class TagController : Controller
     {
-        //
-        // GET: /Admin/Tag/
-
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

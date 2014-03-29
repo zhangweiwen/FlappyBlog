@@ -48,6 +48,9 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -58,7 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aop\TransactionInterceptor.cs" />
+    <Compile Include="Aop\AopHelper.cs" />
+    <Compile Include="Aop\CacheAttribute.cs" />
+    <Compile Include="Aop\Interceptors\CacheInterceptor.cs" />
+    <Compile Include="Aop\Interceptors\LogInterceptor.cs" />
+    <Compile Include="Aop\Interceptors\WatchInterceptor.cs" />
+    <Compile Include="Aop\NoTransactionAttribute.cs" />
+    <Compile Include="Aop\Interceptors\NHibernateInterceptor.cs" />
     <Compile Include="Aop\IsolationLevelAttribute.cs" />
     <Compile Include="Exceptions\DomainException.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

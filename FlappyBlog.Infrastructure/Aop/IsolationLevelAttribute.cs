@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data;
 
-namespace FlappyBlog.Mvc.Core
+namespace FlappyBlog.Infrastructure.Aop
 {
-    public class IsolationLevelAttribute : Attribute
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+    public sealed class IsolationLevelAttribute : Attribute
     {
         public IsolationLevelAttribute(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
         {

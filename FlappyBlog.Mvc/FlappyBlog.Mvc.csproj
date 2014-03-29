@@ -144,20 +144,15 @@
     <Compile Include="Areas\Admin\Controllers\PasswordController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Home\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
-    <Compile Include="Core\AopInterceptor.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
-    <Compile Include="Core\SessionPerRequestAttribute.cs" />
-    <Compile Include="Core\SqlInterceptor.cs" />
+    <Compile Include="Core\InitData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Core\NLog-NHibernate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\TestMoudle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Home\Views\Home\Index.aspx" />
     <Content Include="static\bootstrap\css\bootstrap-switch.css" />
     <Content Include="static\bootstrap\css\bootstrap-switch.min.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
@@ -324,14 +319,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
@@ -350,6 +344,8 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Password\Index.cshtml" />
+    <Content Include="Areas\Home\Views\Home\Index.cshtml" />
+    <None Include="App_Data\Blog.sqlite" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -369,6 +365,10 @@
     <ProjectReference Include="..\FlappyBlog.Domain\FlappyBlog.Domain.csproj">
       <Project>{A5968738-2E12-4108-A153-9B908F735668}</Project>
       <Name>FlappyBlog.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlappyBlog.Infrastructure\FlappyBlog.Infrastructure.csproj">
+      <Project>{BDF9FB86-89BF-49BF-88D1-5AE3E138019B}</Project>
+      <Name>FlappyBlog.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

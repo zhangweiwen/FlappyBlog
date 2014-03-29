@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NHibernate;
 
 namespace FlappyBlog.Application.Implements
 {
@@ -13,5 +14,7 @@ namespace FlappyBlog.Application.Implements
                 return _messages;
             }
         }
+
+        public ISession Session { get; set; }
     }
 }
