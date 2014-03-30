@@ -7,14 +7,14 @@ namespace FlappyBlog.Mvc.Html.Bootstrap.Btn
     {
         public Button()
         {
-            Type = ButtonType.Default;
-            Size=ButtonSize.Default;
+            Type = BtnType.Default;
+            Size=BtnSize.Default;
             IsBlock = false;
             IsActive = false;
         }
 
-        public ButtonType Type { get; set; }
-        public ButtonSize Size { get; set; }
+        public BtnType Type { get; set; }
+        public BtnSize Size { get; set; }
         public bool IsBlock { get; set; }
         public bool IsActive { get; set; }
         public string Text { get; set; }
@@ -23,15 +23,15 @@ namespace FlappyBlog.Mvc.Html.Bootstrap.Btn
         {
             var tagBuilder = new TagBuilder("button");
             tagBuilder.AddCssClass(string.Format("btn-{0}", Type.ToString().ToLower()));
-            if (Size == ButtonSize.Large)
+            if (Size == BtnSize.Large)
             {
                 tagBuilder.AddCssClass("btn-lg");                
             }
-            if (Size == ButtonSize.Small)
+            if (Size == BtnSize.Small)
             {
                 tagBuilder.AddCssClass("btn-sm");
             }
-            if (Size == ButtonSize.ExtraSmall)
+            if (Size == BtnSize.ExtraSmall)
             {
                 tagBuilder.AddCssClass("btn-xs");
             }

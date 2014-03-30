@@ -10,13 +10,13 @@ namespace FlappyBlog.Mvc.Html
             return new Button { Text = text };
         }
 
-        public static Button Type(this Button btn, ButtonType type)
+        public static Button Type(this Button btn, BtnType type)
         {
             btn.Type = type;
             return btn;
         }
 
-        public static Button Size(this Button btn, ButtonSize size)
+        public static Button Size(this Button btn, BtnSize size)
         {
             btn.Size = size;
             return btn;
