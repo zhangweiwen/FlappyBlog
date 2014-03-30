@@ -154,11 +154,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Core\NLog-NHibernate.cs" />
     <Compile Include="Html\Bootstrap\Btn\Button.cs" />
-    <Compile Include="Html\Bootstrap\Btn\ButtonSize.cs" />
-    <Compile Include="Html\Bootstrap\Btn\ButtonType.cs" />
-    <Compile Include="Html\Bootstrap\Extensions.cs" />
+    <Compile Include="Html\Bootstrap\Btn\BtnSize.cs" />
+    <Compile Include="Html\Bootstrap\Btn\BtnType.cs" />
+    <Compile Include="Html\Bootstrap\Table.cs" />
+    <Compile Include="Html\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

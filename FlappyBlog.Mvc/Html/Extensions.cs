@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using FlappyBlog.Mvc.Html.Bootstrap;
 using FlappyBlog.Mvc.Html.Bootstrap.Btn;
 
 namespace FlappyBlog.Mvc.Html
@@ -9,7 +10,12 @@ namespace FlappyBlog.Mvc.Html
         public static MvcHtmlString Toolbar(this HtmlHelper htmlHelper, params Button[] buttons)
         {
             return htmlHelper.Partial("Toolbar", buttons);
-        }        
+        }
+
+        public static Table BeginTable(this HtmlHelper htmlHelper)
+        {
+            return new Table(htmlHelper.ViewContext);
+        }
     }
 
     public static partial class Extensions

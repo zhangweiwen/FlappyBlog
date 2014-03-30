@@ -72,6 +72,7 @@
     <Compile Include="Exceptions\DomainException.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\DynamicLinqExtensions.cs" />
+    <Compile Include="NLog-NHibernate.cs" />
     <Compile Include="Paged\OrderInfo.cs" />
     <Compile Include="Paged\PagedInfo.cs" />
     <Compile Include="Paged\PagedList.cs" />
