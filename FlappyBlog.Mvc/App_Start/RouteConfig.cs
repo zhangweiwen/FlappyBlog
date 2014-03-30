@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
+// ReSharper disable once CheckNamespace
 namespace FlappyBlog.Mvc
 {
     public class RouteConfig
@@ -13,9 +14,9 @@ namespace FlappyBlog.Mvc
                  name: "Default",
                  url: "{controller}/{action}/{id}",
                  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                 namespaces: new[] { "FlappyBlog.Mvc.Areas.Home.Controllers" }
+                 namespaces: new[] { "FlappyBlog.Mvc.Areas.Default.Controllers" }
              );
-            route.DataTokens["area"] = "Home";
+            route.DataTokens["area"] = "Default";
         }
     }
 }

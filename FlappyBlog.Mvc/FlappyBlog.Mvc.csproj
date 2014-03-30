@@ -143,7 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PasswordController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
-    <Compile Include="Areas\Home\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Default\Controllers\HomeController.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
     <Compile Include="Core\InitData.cs" />
     <Compile Include="Global.asax.cs">
@@ -327,14 +327,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Home\Models\" />
-    <Folder Include="Areas\Home\Views\Shared\" />
+    <Folder Include="Areas\Default\Models\" />
+    <Folder Include="Areas\Default\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Home\Views\Web.config" />
+    <Content Include="Areas\Default\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\AccountBase.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\AdminBase.cshtml" />
@@ -344,8 +344,9 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Password\Index.cshtml" />
-    <Content Include="Areas\Home\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Home\Index.cshtml" />
     <None Include="App_Data\Blog.sqlite" />
+    <Content Include="Areas\Default\Views\Home\About.cshtml" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
