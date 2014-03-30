@@ -11,7 +11,7 @@ namespace FlappyBlog.Infrastructure.Aop
     public sealed class LogInterceptor : IInterceptor
     {
         private const string EntryMethodKey = "App_Service_Entry_Method";
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetLogger("application");
 
         public void Intercept(IInvocation invocation)
         {

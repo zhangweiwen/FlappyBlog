@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace FlappyBlog.Infrastructure.Paged
 {
@@ -27,5 +28,10 @@ namespace FlappyBlog.Infrastructure.Paged
         public int TotalPage { get; set; }
 
         public List<T> Items { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
