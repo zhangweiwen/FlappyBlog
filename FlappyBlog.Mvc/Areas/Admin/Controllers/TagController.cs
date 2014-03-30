@@ -14,14 +14,17 @@ namespace FlappyBlog.Mvc.Areas.Admin.Controllers
             _tagService = tagService;
         }
 
-        public ActionResult Index(int? pageIndex = 1)
+        public ActionResult Index(string keyword, int pageIndex = 1)
         {
-            var pagedInfo = new PagedInfo()
+            if (pageIndex <= 0)
+                pageIndex = 1;
+
+            var pagedInfo = new PagedInfo
             {
-                PageIndex = 1,
+                PageIndex = pageIndex,
                 PageSize = Constants.PageSize
             };
-            var tags = _tagService.Query(pagedInfo);
+            var tags = _tagService.Query(keyword, pagedInfo);
             return View(tags);
         }
     }

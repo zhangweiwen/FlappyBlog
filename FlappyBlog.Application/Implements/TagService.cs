@@ -3,6 +3,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using FlappyBlog.Domain.Models;
 using FlappyBlog.Infrastructure.Exceptions;
+using FlappyBlog.Infrastructure.Extensions.String;
 using FlappyBlog.Infrastructure.Paged;
 using NHibernate.Linq;
 using NLog;
@@ -43,9 +44,13 @@ namespace FlappyBlog.Application.Implements
         }
 
         //结果写入缓存
-        public PagedList<Tag> Query(PagedInfo pagedInfo)
+        public PagedList<Tag> Query(string keyword, PagedInfo pagedInfo)
         {
             var query = Session.Query<Tag>();
+            if (keyword.IsNullOrWhiteSpace() == false)
+            {
+                query = query.Where(q => q.Name.Contains(keyword) || q.Description.Contains(keyword));
+            }
             return query.ToPagedList(pagedInfo);
         }
     }

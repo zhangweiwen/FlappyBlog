@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using FlappyBlog.Mvc.Html.Bootstrap;
@@ -25,42 +26,66 @@ namespace FlappyBlog.Mvc.Html
             wapper.AddCssClass("text-right");
             var ul = new TagBuilder("ul");
             ul.AddCssClass("pagination");
-            var end = pageCount <= 5 ? pageCount : pageIndex + 4;
-            var begin = pageCount <= 5 ? 1 : pageIndex;
+            var tuple = CountBeginEnd(pageIndex, pageCount);
             var sb = new StringBuilder();
             var prev = new TagBuilder("li");
             var next = new TagBuilder("li");
-            var prevLink = new TagBuilder("a");
-            var nextLink = new TagBuilder("a");
-            prevLink.SetInnerText("« Prev");
-            nextLink.SetInnerText("Next »");
-            prev.InnerHtml = prevLink.ToString();
-            next.InnerHtml = nextLink.ToString();
+            var actionName = htmlHelper.ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
             if (pageIndex == 1)
             {
                 prev.AddCssClass("disabled");
+                var prevLink = new TagBuilder("a");
+                prevLink.SetInnerText("« Prev");
+                prev.InnerHtml = prevLink.ToString();
+
+            }
+            else
+            {
+                var prevLink = htmlHelper.ActionLink("« Prev", actionName, new { pageIndex = pageIndex - 1 });
+                prev.InnerHtml = prevLink.ToHtmlString();
             }
             if (pageIndex == pageCount)
             {
                 next.AddCssClass("disabled");
+                var nextLink = new TagBuilder("a");
+                nextLink.SetInnerText("Next »");
+                next.InnerHtml = nextLink.ToString();
+            }
+            else
+            {
+                var nextLink = htmlHelper.ActionLink("Next »", actionName, new { pageIndex = pageIndex + 1 });
+                next.InnerHtml = nextLink.ToHtmlString();
             }
             sb.AppendLine(prev.ToString());
-            for (var i = begin; i <= end; i++)
+            for (var i = tuple.Item1; i <= tuple.Item2; i++)
             {
                 var li = new TagBuilder("li");
-                var link = new TagBuilder("a");
-                link.SetInnerText(i.ToString());
+                var link = htmlHelper.ActionLink(i.ToString(), actionName, new { pageIndex = i });
                 if (i == pageIndex)
                 {
                     li.AddCssClass("active");
                 }
-                li.InnerHtml = link.ToString();
+                li.InnerHtml = link.ToHtmlString();
                 sb.AppendLine(li.ToString());
             }
             sb.AppendLine(next.ToString());
             ul.InnerHtml = sb.ToString();
             wapper.InnerHtml = ul.ToString();
             return new MvcHtmlString(wapper.ToString());
+        }
+
+        public static Tuple<int, int> CountBeginEnd(int pageIndex, int pageCount)
+        {
+            if (pageCount <= 5)
+                return Tuple.Create(1, pageCount);
+
+            if (pageIndex <= 3)
+                return Tuple.Create(1, 5);
+
+            if (pageIndex + 2 >= pageCount)
+                return Tuple.Create(pageCount - 4, pageCount);
+
+            return Tuple.Create(pageIndex - 2, pageIndex + 2);
         }
     }
 
