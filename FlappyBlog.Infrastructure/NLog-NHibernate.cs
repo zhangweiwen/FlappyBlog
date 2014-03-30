@@ -2,7 +2,7 @@ using System;
 using NHibernate;
 using NLog;
 
-namespace FlappyBlog.Mvc.Core
+namespace FlappyBlog.Infrastructure
 {
 	///Add <add key="nhibernate-logger" value="MyNamespace.NLogFactory, MyAssemblyName"/>
     

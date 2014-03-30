@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NHibernate;
+using NHibernate.Context;
 
 namespace FlappyBlog.Application.Implements
 {
@@ -15,6 +16,14 @@ namespace FlappyBlog.Application.Implements
             }
         }
 
-        public ISession Session { get; set; }
+        protected ISession Session
+        {
+            get
+            {
+                return SessionFactory.GetCurrentSession();
+            }
+        }
+
+        public ISessionFactory SessionFactory { get; set; }
     }
 }

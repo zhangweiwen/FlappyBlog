@@ -73,15 +73,6 @@
     background-color: #EEE;
     border-bottom-width: 1px;
 }
-.table tr th:first-child, .table tr td:first-child
-{
-    -moz-min-width: 15px !important;
-    -ms-min-width: 15px !important;
-    -o-min-width: 15px !important;
-    -webkit-min-width: 15px !important;
-    min-width: 15px !important;
-    width: 15px !important;
-}
 .pagination-wapper
 {
     margin-top: -15px;

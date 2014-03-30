@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using FlappyBlog.Domain.Models;
 using FlappyBlog.Infrastructure.Exceptions;
+using FlappyBlog.Infrastructure.Paged;
 using NHibernate.Linq;
 using NLog;
 
@@ -42,9 +43,10 @@ namespace FlappyBlog.Application.Implements
         }
 
         //结果写入缓存
-        public List<Tag> Query()
+        public PagedList<Tag> Query(PagedInfo pagedInfo)
         {
-            return Session.Query<Tag>().ToList();
+            var query = Session.Query<Tag>();
+            return query.ToPagedList(pagedInfo);
         }
     }
 }

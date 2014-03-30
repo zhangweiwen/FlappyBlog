@@ -1,10 +1,11 @@
-﻿using Autofac;
+﻿using System.Web.Mvc;
+using Autofac;
 using Autofac.Extras.DynamicProxy2;
+using Autofac.Integration.Mvc;
 using FlappyBlog.Application;
 using FlappyBlog.Application.Implements;
 using FlappyBlog.Domain.Mappings;
 using FlappyBlog.Infrastructure.Aop;
-using FlappyBlog.Mvc.Core;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -22,34 +23,44 @@ namespace FlappyBlog.Mvc.App_Start
 
         public static void Init()
         {
-            RegisteNHibernate();
-            RegisteInterceptor();
-            RegisteAppServices();
+            RegisterNHibernate();
+            RegisterInterceptor();
+            RegisterAppServices();
+            RegisterControllers();
             Container = Builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
         }
 
-        private static void RegisteNHibernate()
+        private static void RegisterControllers()
+        {
+            Builder.RegisterControllers(typeof(IocHelper).Assembly);
+        }
+
+        private static void RegisterNHibernate()
         {
             Builder.Register(c => BuildSessionFactory()).As<ISessionFactory>().SingleInstance();
         }
 
-        private static void RegisteInterceptor()
+        private static void RegisterInterceptor()
         {
-            Builder.RegisterType<Log4NetLogger>().AsSelf();
+            Builder.RegisterType<LogInterceptor>().AsSelf();
             Builder.RegisterType<WatchInterceptor>().AsSelf();
-            Builder.RegisterType<NHibernateInterceptor>().AsSelf();
+            Builder.Register(c =>
+            {
+                var sessionFactory = c.Resolve<ISessionFactory>();
+                return new NHibernateInterceptor(sessionFactory);
+            }).AsSelf();
         }
 
-        private static void RegisteAppServices()
+        private static void RegisterAppServices()
         {
             Builder.Register(c =>
             {
                 var sessionFactory = c.Resolve<ISessionFactory>();
-                var session = sessionFactory.GetCurrentSession();
-                return new TagService { Session = session };
+                return new TagService { SessionFactory = sessionFactory };
             }).As<ITagService>()
-            .EnableInterfaceInterceptors()
-            .InterceptedBy(typeof(WatchInterceptor), typeof(NHibernateInterceptor), typeof(Log4NetLogger));
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(WatchInterceptor), typeof(NHibernateInterceptor), typeof(LogInterceptor));
         }
 
         public static ISessionFactory BuildSessionFactory(bool buildTables = false)

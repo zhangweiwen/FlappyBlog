@@ -46,6 +46,9 @@
     <Reference Include="Autofac.Extras.DynamicProxy2">
       <HintPath>..\packages\Autofac.Extras.DynamicProxy2.3.0.3\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.2.2\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
@@ -145,11 +148,17 @@
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
+    <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\InitData.cs" />
+    <Compile Include="Core\InitTestData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Core\NLog-NHibernate.cs" />
+    <Compile Include="Html\Bootstrap\Btn\Button.cs" />
+    <Compile Include="Html\Bootstrap\Btn\ButtonSize.cs" />
+    <Compile Include="Html\Bootstrap\Btn\ButtonType.cs" />
+    <Compile Include="Html\Bootstrap\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +356,7 @@
     <Content Include="Areas\Default\Views\Home\Index.cshtml" />
     <None Include="App_Data\Blog.sqlite" />
     <Content Include="Areas\Default\Views\Home\About.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ToolBar.cshtml" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />

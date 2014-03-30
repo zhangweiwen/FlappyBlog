@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using FlappyBlog.Application;
 using FlappyBlog.Domain.Models;
 using FlappyBlog.Mvc.App_Start;
 using FlappyBlog.Mvc.Core;
@@ -8,12 +10,17 @@ namespace FlappyBlog.Mvc.Areas.Default.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ITagService _tagService;
+
+        public HomeController(ITagService tagService)
+        {
+            _tagService = tagService;
+        }
+
         public ActionResult Index()
         {
-            return View(new Tag
-            {
-                Name = "123"
-            });
+            //var tag = _tagService.Query().Items.FirstOrDefault();
+            return View(new Tag { Name = "TagAbc" });
         }
 
         public ActionResult About()
@@ -27,12 +34,11 @@ namespace FlappyBlog.Mvc.Areas.Default.Controllers
             var factory = IocHelper.BuildSessionFactory(true);
             using (var session = factory.OpenSession())
             {
-                foreach (var tag in InitData.Tags)
+                foreach (var tag in InitTestData.Tags)
                 {
-                   var id = session.Save(tag);
-                    session.Flush();
-                    Console.WriteLine(id);
+                    var id = session.Save(tag);
                 }
+                session.Flush();
             }
             return Content("Success!");
         }

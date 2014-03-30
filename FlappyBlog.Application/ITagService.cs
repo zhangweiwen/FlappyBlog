@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using FlappyBlog.Domain.Models;
+using FlappyBlog.Infrastructure.Paged;
 
 namespace FlappyBlog.Application
 {
@@ -7,6 +8,6 @@ namespace FlappyBlog.Application
     {
         void CreateTag(Tag tag);
         void CreateTags(string tags);
-        List<Tag> Query();
+        PagedList<Tag> Query(PagedInfo pagedInfo);
     }
 }
