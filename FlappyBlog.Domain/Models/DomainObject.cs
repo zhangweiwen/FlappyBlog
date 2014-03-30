@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace FlappyBlog.Domain.Models
 {
@@ -32,6 +33,11 @@ namespace FlappyBlog.Domain.Models
         protected bool Equals(DomainObject other)
         {
             return Id.Equals(other.Id);
+        }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
