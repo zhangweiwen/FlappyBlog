@@ -8,5 +8,15 @@ namespace FlappyBlog.Mvc.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Password()
+        {
+            return View();
+        }
     }
 }

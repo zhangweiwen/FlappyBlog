@@ -143,8 +143,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PasswordController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
@@ -357,6 +355,8 @@
     <None Include="App_Data\Blog.sqlite" />
     <Content Include="Areas\Default\Views\Home\About.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\ToolBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Password.cshtml" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
