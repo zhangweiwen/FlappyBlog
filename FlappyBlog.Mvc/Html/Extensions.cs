@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Text;
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using FlappyBlog.Mvc.Html.Bootstrap;
 using FlappyBlog.Mvc.Html.Bootstrap.Btn;
@@ -15,6 +16,51 @@ namespace FlappyBlog.Mvc.Html
         public static Table BeginTable(this HtmlHelper htmlHelper)
         {
             return new Table(htmlHelper.ViewContext);
+        }
+
+        public static MvcHtmlString Pager(this HtmlHelper htmlHelper, int pageIndex, int pageCount)
+        {
+            var wapper = new TagBuilder("div");
+            wapper.AddCssClass("pagination-wapper");
+            wapper.AddCssClass("text-right");
+            var ul = new TagBuilder("ul");
+            ul.AddCssClass("pagination");
+            var end = pageCount <= 5 ? pageCount : pageIndex + 4;
+            var begin = pageCount <= 5 ? 1 : pageIndex;
+            var sb = new StringBuilder();
+            var prev = new TagBuilder("li");
+            var next = new TagBuilder("li");
+            var prevLink = new TagBuilder("a");
+            var nextLink = new TagBuilder("a");
+            prevLink.SetInnerText("« Prev");
+            nextLink.SetInnerText("Next »");
+            prev.InnerHtml = prevLink.ToString();
+            next.InnerHtml = nextLink.ToString();
+            if (pageIndex == 1)
+            {
+                prev.AddCssClass("disabled");
+            }
+            if (pageIndex == pageCount)
+            {
+                next.AddCssClass("disabled");
+            }
+            sb.AppendLine(prev.ToString());
+            for (var i = begin; i <= end; i++)
+            {
+                var li = new TagBuilder("li");
+                var link = new TagBuilder("a");
+                link.SetInnerText(i.ToString());
+                if (i == pageIndex)
+                {
+                    li.AddCssClass("active");
+                }
+                li.InnerHtml = link.ToString();
+                sb.AppendLine(li.ToString());
+            }
+            sb.AppendLine(next.ToString());
+            ul.InnerHtml = sb.ToString();
+            wapper.InnerHtml = ul.ToString();
+            return new MvcHtmlString(wapper.ToString());
         }
     }
 
