@@ -1,8 +1,12 @@
-﻿<div class="toolbar-grid clearfix">
+﻿@model FlappyBlog.Mvc.Html.Bootstrap.Btn.Button[]
+<div class="toolbar-grid clearfix">
     <div class="row">
         <div class="col-md-8">
             <div class="pull-left">
-                <button class="btn btn-primary">添加</button>
+                @foreach (var btn in Model)
+                {
+                    @btn.Render()
+                }
             </div>
         </div>
         <div class="col-md-4">

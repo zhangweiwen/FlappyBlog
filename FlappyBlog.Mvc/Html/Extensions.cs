@@ -1,8 +1,17 @@
 ﻿using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using FlappyBlog.Mvc.Html.Bootstrap.Btn;
 
 namespace FlappyBlog.Mvc.Html
 {
+    public static partial class Extensions
+    {
+        public static MvcHtmlString Toolbar(this HtmlHelper htmlHelper, params Button[] buttons)
+        {
+            return htmlHelper.Partial("Toolbar", buttons);
+        }        
+    }
+
     public static partial class Extensions
     {
         public static Button Button(this HtmlHelper htmlHelper, string text)
