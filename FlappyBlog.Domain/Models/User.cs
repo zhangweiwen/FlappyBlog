@@ -17,8 +17,6 @@ namespace FlappyBlog.Domain.Models
         public virtual string PictrueUrl { get; set; }
 
         public virtual string Description { get; set; }
-
-        public virtual DateTime CreatedDate { get; set; }
     }
 
     public partial class User

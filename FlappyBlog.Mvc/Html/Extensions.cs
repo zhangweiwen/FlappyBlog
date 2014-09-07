@@ -1,19 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using FlappyBlog.Mvc.Html.Bootstrap;
-using FlappyBlog.Mvc.Html.Bootstrap.Btn;
+using System.Collections.Specialized;
+using System.Web.Routing;
 
 namespace FlappyBlog.Mvc.Html
 {
     public static partial class Extensions
     {
-        public static MvcHtmlString Toolbar(this HtmlHelper htmlHelper, params Button[] buttons)
-        {
-            return htmlHelper.Partial("Toolbar", buttons);
-        }
-
         public static Table BeginTable(this HtmlHelper htmlHelper)
         {
             return new Table(htmlHelper.ViewContext);
@@ -21,6 +19,11 @@ namespace FlappyBlog.Mvc.Html
 
         public static MvcHtmlString Pager(this HtmlHelper htmlHelper, int pageIndex, int pageCount)
         {
+            if (pageCount == 0)
+            {
+                return MvcHtmlString.Empty;
+            }
+            var request = htmlHelper.ViewContext.HttpContext.Request;
             var wapper = new TagBuilder("div");
             wapper.AddCssClass("pagination-wapper");
             wapper.AddCssClass("text-right");
@@ -31,17 +34,24 @@ namespace FlappyBlog.Mvc.Html
             var prev = new TagBuilder("li");
             var next = new TagBuilder("li");
             var actionName = htmlHelper.ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+            if (htmlHelper.ViewContext.IsChildAction)
+            {
+                actionName =
+                    htmlHelper.ViewContext.ParentActionViewContext.Controller.ValueProvider.GetValue("action")
+                        .RawValue.ToString();
+            }
             if (pageIndex == 1)
             {
                 prev.AddCssClass("disabled");
                 var prevLink = new TagBuilder("a");
                 prevLink.SetInnerText("« Prev");
                 prev.InnerHtml = prevLink.ToString();
-
             }
             else
             {
-                var prevLink = htmlHelper.ActionLink("« Prev", actionName, new { pageIndex = pageIndex - 1 });
+                var dic = request.QueryString.ToRouteValues();
+                dic["pageIndex"] = pageIndex - 1;
+                var prevLink = htmlHelper.ActionLink("« Prev", actionName, dic);
                 prev.InnerHtml = prevLink.ToHtmlString();
             }
             if (pageIndex == pageCount)
@@ -53,14 +63,18 @@ namespace FlappyBlog.Mvc.Html
             }
             else
             {
-                var nextLink = htmlHelper.ActionLink("Next »", actionName, new { pageIndex = pageIndex + 1 });
+                var dic = request.QueryString.ToRouteValues();
+                dic["pageIndex"] = pageIndex + 1;
+                var nextLink = htmlHelper.ActionLink("Next »", actionName, dic);
                 next.InnerHtml = nextLink.ToHtmlString();
             }
             sb.AppendLine(prev.ToString());
             for (var i = tuple.Item1; i <= tuple.Item2; i++)
             {
                 var li = new TagBuilder("li");
-                var link = htmlHelper.ActionLink(i.ToString(), actionName, new { pageIndex = i });
+                var dic = request.QueryString.ToRouteValues();
+                dic["pageIndex"] = i;
+                var link = htmlHelper.ActionLink(i.ToString(), actionName, dic);
                 if (i == pageIndex)
                 {
                     li.AddCssClass("active");
@@ -74,7 +88,24 @@ namespace FlappyBlog.Mvc.Html
             return new MvcHtmlString(wapper.ToString());
         }
 
-        public static Tuple<int, int> CountBeginEnd(int pageIndex, int pageCount)
+        public static MvcHtmlString FormLabelFor<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression)
+        {
+            return htmlHelper.LabelFor(expression, new { @class = "col-sm-2 control-label" });
+        }
+
+        public static MvcHtmlString FormTextBoxFor<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression)
+        {
+            return htmlHelper.TextBoxFor(expression, new { @class = "form-control" });
+        }
+
+        public static MvcHtmlString FormTextAreaFor<TModel, TValue>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TValue>> expression, object htmlAttributes)
+        {
+            var dic = htmlAttributes.ToDictionary();
+            dic.Add("class", "form-control");
+            return htmlHelper.TextAreaFor(expression, dic);
+        }
+
+        private static Tuple<int, int> CountBeginEnd(int pageIndex, int pageCount)
         {
             if (pageCount <= 5)
                 return Tuple.Create(1, pageCount);
@@ -87,37 +118,36 @@ namespace FlappyBlog.Mvc.Html
 
             return Tuple.Create(pageIndex - 2, pageIndex + 2);
         }
+
     }
 
     public static partial class Extensions
     {
-        public static Button Button(this HtmlHelper htmlHelper, string text)
+        public static RouteValueDictionary ToRouteValues(this NameValueCollection collection)
         {
-            return new Button { Text = text };
+            var routeValueDictionary = new RouteValueDictionary();
+            foreach (var key in collection.AllKeys)
+            {
+                routeValueDictionary.Add(key, collection[key]);
+            }
+            return routeValueDictionary;
         }
 
-        public static Button Type(this Button btn, BtnType type)
+        public static IDictionary<string, object> ToDictionary(this object data)
         {
-            btn.Type = type;
-            return btn;
-        }
+            if (data == null) return null; // Or throw an ArgumentNullException if you want
 
-        public static Button Size(this Button btn, BtnSize size)
-        {
-            btn.Size = size;
-            return btn;
-        }
+            const BindingFlags publicAttributes = BindingFlags.Public | BindingFlags.Instance;
+            var dictionary = new Dictionary<string, object>();
 
-        public static Button IsBlock(this Button btn, bool isBlock)
-        {
-            btn.IsBlock = isBlock;
-            return btn;
-        }
-
-        public static Button IsActive(this Button btn, bool isActive)
-        {
-            btn.IsActive = isActive;
-            return btn;
+            foreach (var property in data.GetType().GetProperties(publicAttributes))
+            {
+                if (property.CanRead)
+                {
+                    dictionary.Add(property.Name, property.GetValue(data, null));
+                }
+            }
+            return dictionary;
         }
     }
 }

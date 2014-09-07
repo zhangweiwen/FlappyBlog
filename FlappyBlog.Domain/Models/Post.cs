@@ -19,9 +19,7 @@ namespace FlappyBlog.Domain.Models
 
         public virtual string CustomUrl { get; set; }
 
-        public virtual DateTime CreatedDate { get; set; }
 
-        public virtual DateTime UpdatedDate { get; set; }
     }
 
     public partial class Post

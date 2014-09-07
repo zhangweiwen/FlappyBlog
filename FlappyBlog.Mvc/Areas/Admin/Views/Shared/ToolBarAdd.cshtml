@@ -1,0 +1,21 @@
+﻿<div class="toolbar-grid clearfix">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="pull-left">
+                <button class="btn-primary btn" data-target="#myModal" data-toggle="modal">添加</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm(null, null, FormMethod.Get))
+            {
+                <div class="input-group">
+                    @{ var keyword = Html.ViewContext.HttpContext.Request.QueryString["keyword"] ?? string.Empty; }
+                    <input type="text" name="keyword" class="form-control" value="@keyword"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">搜索</button>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>

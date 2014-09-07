@@ -7,6 +7,7 @@ namespace FlappyBlog.Application
     {
         void CreateTag(Tag tag);
         void CreateTags(string tags);
+        void RemoveTag(string tagName);
         PagedList<Tag> Query(string keyword, PagedInfo pagedInfo);
     }
 }

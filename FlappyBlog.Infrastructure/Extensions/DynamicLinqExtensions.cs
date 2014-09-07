@@ -79,6 +79,10 @@ namespace System.Linq.Dynamic
                     }
                 }
             }
+            else
+            {
+                
+            }
             var count = queryable.Count();
             var items = queryable.Skip((pagedInfo.PageIndex - 1) * pagedInfo.PageSize).Take(pagedInfo.PageSize).ToList();
             return new PagedList<T>(pagedInfo.PageSize, count) { Items = items, PageIndex = pagedInfo.PageIndex };

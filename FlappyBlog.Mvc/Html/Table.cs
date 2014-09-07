@@ -1,29 +1,29 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace FlappyBlog.Mvc.Html.Bootstrap
+namespace FlappyBlog.Mvc.Html
 {
     public class Table : IDisposable
     {
-        private TagBuilder _divBuilder;
+        //private TagBuilder _divBuilder;
         private TagBuilder _tableBuilder;
         private readonly ViewContext _viewContext;
 
         public Table(ViewContext viewContext)
         {
             _viewContext = viewContext;
-            CreateDiv();
+            //CreateDiv();
             CreateTable();
 
-            _viewContext.Writer.WriteLine(_divBuilder.ToString(TagRenderMode.StartTag));
+            //_viewContext.Writer.WriteLine(_divBuilder.ToString(TagRenderMode.StartTag));
             _viewContext.Writer.WriteLine(_tableBuilder.ToString(TagRenderMode.StartTag));
         }
 
-        private void CreateDiv()
-        {
-            _divBuilder = new TagBuilder("div");
-            _divBuilder.AddCssClass("table-responsive");
-        }
+        //private void CreateDiv()
+        //{
+        //    _divBuilder = new TagBuilder("div");
+        //    _divBuilder.AddCssClass("table-responsive");
+        //}
 
         private void CreateTable()
         {
@@ -38,7 +38,7 @@ namespace FlappyBlog.Mvc.Html.Bootstrap
         public void Dispose()
         {
             _viewContext.Writer.WriteLine(_tableBuilder.ToString(TagRenderMode.EndTag));
-            _viewContext.Writer.WriteLine(_divBuilder.ToString(TagRenderMode.EndTag));
+            //_viewContext.Writer.WriteLine(_divBuilder.ToString(TagRenderMode.EndTag));
         }
     }
 }

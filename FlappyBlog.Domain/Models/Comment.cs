@@ -23,7 +23,5 @@ namespace FlappyBlog.Domain.Models
         public virtual Comment Parent { get; set; }
 
         public virtual string HomePage { get; set; }
-
-        public virtual DateTime CreatedDate { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace FlappyBlog.Application.Implements
             if (exist)
                 throw new DomainException(string.Format("{0} 已存在!", tag.Name));
 
+            tag.CreatedDate = DateTime.Now;
+            tag.UpdatedDate = DateTime.Now;
             Session.Save(tag);
         }
 
@@ -36,10 +38,20 @@ namespace FlappyBlog.Application.Implements
                         CreatedDate = DateTime.Now,
                         Description = tag,
                         Name = tag,
-                        PostCount = 0
+                        PostCount = 0,
+                        UpdatedDate = DateTime.Now,
                     };
                     Session.Save(tagObj);
                 }
+            }
+        }
+
+        public void RemoveTag(string tagName)
+        {
+            var tags = Session.QueryOver<Tag>().Where(x => x.Name == tagName).List();
+            foreach (var tag in tags)
+            {
+                Session.Delete(tag);
             }
         }
 

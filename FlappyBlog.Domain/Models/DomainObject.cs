@@ -7,6 +7,10 @@ namespace FlappyBlog.Domain.Models
     public partial class DomainObject
     {
         public virtual int Id { get; set; }
+
+        public virtual DateTime CreatedDate { get; set; }
+
+        public virtual DateTime UpdatedDate { get; set; }
     }
 
     public partial class DomainObject

@@ -144,22 +144,35 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
+    <Compile Include="Areas\Admin\Models\TagEditModel.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
     <Compile Include="App_Start\IocHelper.cs" />
     <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Html\Extensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Core\InitData.cs" />
     <Compile Include="Core\InitTestData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Html\Bootstrap\Btn\Button.cs" />
-    <Compile Include="Html\Bootstrap\Btn\BtnSize.cs" />
-    <Compile Include="Html\Bootstrap\Btn\BtnType.cs" />
-    <Compile Include="Html\Bootstrap\Table.cs" />
-    <Compile Include="Html\Extensions.cs" />
+    <Compile Include="Html\Table.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery-1.8.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="static\bootstrap\css\bootstrap-switch.css" />
     <Content Include="static\bootstrap\css\bootstrap-switch.min.css" />
     <Content Include="static\bootstrap\css\bootstrap-theme.css" />
@@ -313,10 +326,21 @@
     <Content Include="static\img\vimeo.png" />
     <Content Include="static\img\zlogo.png" />
     <Content Include="static\js\account.js" />
+    <Content Include="static\js\admin.js" />
     <Content Include="static\js\html5shiv.min.js" />
     <Content Include="static\js\jquery-1.11.0-vsdoc.js" />
     <Content Include="static\js\jquery-1.11.0.js" />
     <Content Include="static\js\jquery-1.11.0.min.js" />
+    <Content Include="static\js\jquery-ui-1.10.4.js" />
+    <Content Include="static\js\jquery-ui-1.10.4.min.js" />
+    <Content Include="static\js\jquery.unobtrusive-ajax.js" />
+    <Content Include="static\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="static\js\jquery.validate.js" />
+    <Content Include="static\js\jquery.validate.min.js" />
+    <Content Include="static\js\jquery.validate.unobtrusive.bootstrap.js" />
+    <Content Include="static\js\jquery.validate.unobtrusive.bootstrap.min.js" />
+    <Content Include="static\js\jquery.validate.unobtrusive.js" />
+    <Content Include="static\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="static\js\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -333,7 +357,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Default\Models\" />
     <Folder Include="Areas\Default\Views\Shared\" />
   </ItemGroup>
@@ -352,9 +375,13 @@
     <Content Include="Areas\Default\Views\Home\Index.cshtml" />
     <None Include="App_Data\Blog.sqlite" />
     <Content Include="Areas\Default\Views\Home\About.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\ToolBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ToolBarAdd.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Password.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\TagList.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Modal.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\TestEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Tag\Test.cshtml" />
     <None Include="static\bootstrap\css\bootstrap-theme.css.map" />
     <None Include="static\bootstrap\css\bootstrap.css.map" />
     <None Include="static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -365,6 +392,7 @@
     <None Include="static\img\font-awesome\font\fontawesome-webfont.ttf縱=3.2.1.ttf" />
     <None Include="static\img\font-awesome\font\fontawesome-webfont.woff縱=3.2.1.woff" />
     <None Include="static\js\jquery-1.11.0.min.map" />
+    <None Include="static\js\jquery.validate.unobtrusive.bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlappyBlog.Application\FlappyBlog.Application.csproj">
