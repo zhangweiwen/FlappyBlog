@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="0X.Infrastructure\FlappyBlog.Infrastructure" Label="FlappyBlog.Infrastructure" Category="项目" />
+    <Node Id="Autofac 3.3.0" Label="Autofac 3.3.0" Category="包" />
+    <Node Id="Autofac.Extras.DynamicProxy2 3.0.3" Label="Autofac.Extras.DynamicProxy2 3.0.3" Category="包" />
+    <Node Id="Castle.Core 3.2.2" Label="Castle.Core 3.2.2" Category="包" />
+    <Node Id="Iesi.Collections 3.2.0.1001" Label="Iesi.Collections 3.2.0.1001" Category="包" />
+    <Node Id="NHibernate 3.3.3.4001" Label="NHibernate 3.3.3.4001" Category="包" />
+    <Node Id="NLog 2.1.0" Label="NLog 2.1.0" Category="包" />
+    <Node Id="03.Domain\FlappyBlog.Domain" Label="FlappyBlog.Domain" Category="项目" />
+    <Node Id="FluentNHibernate 1.4.0.0" Label="FluentNHibernate 1.4.0.0" Category="包" />
+    <Node Id="Iesi.Collections 3.2.0.1001" Label="Iesi.Collections 3.2.0.1001" Category="包" />
+    <Node Id="NHibernate 3.3.3.4001" Label="NHibernate 3.3.3.4001" Category="包" />
+    <Node Id="02.Application\FlappyBlog.Application" Label="FlappyBlog.Application" Category="项目" />
+    <Node Id="FluentNHibernate 1.4.0.0" Label="FluentNHibernate 1.4.0.0" Category="包" />
+    <Node Id="Iesi.Collections 3.2.0.1001" Label="Iesi.Collections 3.2.0.1001" Category="包" />
+    <Node Id="NHibernate 3.3.3.4001" Label="NHibernate 3.3.3.4001" Category="包" />
+    <Node Id="NLog 2.1.0" Label="NLog 2.1.0" Category="包" />
+    <Node Id="01.Presentation\FlappyBlog.Mvc" Label="FlappyBlog.Mvc" Category="项目" />
+    <Node Id="Antlr 3.4.1.9004" Label="Antlr 3.4.1.9004" Category="包" />
+    <Node Id="Autofac 3.3.0" Label="Autofac 3.3.0" Category="包" />
+    <Node Id="Autofac.Extras.DynamicProxy2 3.0.3" Label="Autofac.Extras.DynamicProxy2 3.0.3" Category="包" />
+    <Node Id="Castle.Core 3.2.2" Label="Castle.Core 3.2.2" Category="包" />
+    <Node Id="FluentNHibernate 1.4.0.0" Label="FluentNHibernate 1.4.0.0" Category="包" />
+    <Node Id="Iesi.Collections 3.2.0.1001" Label="Iesi.Collections 3.2.0.1001" Category="包" />
+    <Node Id="Microsoft.AspNet.Mvc 4.0.20710.0" Label="Microsoft.AspNet.Mvc 4.0.20710.0" Category="包" />
+    <Node Id="Microsoft.AspNet.Mvc.zh-Hans 4.0.20710.0" Label="Microsoft.AspNet.Mvc.zh-Hans 4.0.20710.0" Category="包" />
+    <Node Id="Microsoft.AspNet.Providers 1.2" Label="Microsoft.AspNet.Providers 1.2" Category="包" />
+    <Node Id="Microsoft.AspNet.Providers.Core 1.1" Label="Microsoft.AspNet.Providers.Core 1.1" Category="包" />
+    <Node Id="Microsoft.AspNet.Providers.Core.zh-Hans 1.1" Label="Microsoft.AspNet.Providers.Core.zh-Hans 1.1" Category="包" />
+    <Node Id="Microsoft.AspNet.Razor 2.0.20710.0" Label="Microsoft.AspNet.Razor 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.AspNet.Razor.zh-Hans 2.0.20710.0" Label="Microsoft.AspNet.Razor.zh-Hans 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.AspNet.Web.Optimization 1.1.3" Label="Microsoft.AspNet.Web.Optimization 1.1.3" Category="包" />
+    <Node Id="Microsoft.AspNet.Web.Optimization.zh-Hans 1.1.3" Label="Microsoft.AspNet.Web.Optimization.zh-Hans 1.1.3" Category="包" />
+    <Node Id="Microsoft.AspNet.WebPages 2.0.20710.0" Label="Microsoft.AspNet.WebPages 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.AspNet.WebPages.zh-Hans 2.0.20710.0" Label="Microsoft.AspNet.WebPages.zh-Hans 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.Net.Http 2.0.20710.0" Label="Microsoft.Net.Http 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.Net.Http.zh-Hans 2.0.20710.0" Label="Microsoft.Net.Http.zh-Hans 2.0.20710.0" Category="包" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="包" />
+    <Node Id="Newtonsoft.Json 6.0.1" Label="Newtonsoft.Json 6.0.1" Category="包" />
+    <Node Id="NHibernate 3.3.3.4001" Label="NHibernate 3.3.3.4001" Category="包" />
+    <Node Id="NHibernate.NLog 1.0.0" Label="NHibernate.NLog 1.0.0" Category="包" />
+    <Node Id="NLog 2.1.0" Label="NLog 2.1.0" Category="包" />
+    <Node Id="System.Data.SQLite.Core 1.0.91.3" Label="System.Data.SQLite.Core 1.0.91.3" Category="包" />
+    <Node Id="WebGrease 1.6.0" Label="WebGrease 1.6.0" Category="包" />
+  </Nodes>
+  <Links>
+    <Link Source="Autofac.Extras.DynamicProxy2 3.0.3" Target="Autofac 3.3.0" Category="程序包依赖项" />
+    <Link Source="Autofac.Extras.DynamicProxy2 3.0.3" Target="Castle.Core 3.2.2" Category="程序包依赖项" />
+    <Link Source="NHibernate 3.3.3.4001" Target="Iesi.Collections 3.2.0.1001" Category="程序包依赖项" />
+    <Link Source="0X.Infrastructure\FlappyBlog.Infrastructure" Target="Autofac.Extras.DynamicProxy2 3.0.3" Category="安装的程序包" />
+    <Link Source="0X.Infrastructure\FlappyBlog.Infrastructure" Target="NHibernate 3.3.3.4001" Category="安装的程序包" />
+    <Link Source="0X.Infrastructure\FlappyBlog.Infrastructure" Target="NLog 2.1.0" Category="安装的程序包" />
+    <Link Source="FluentNHibernate 1.4.0.0" Target="NHibernate 3.3.3.4001" Category="程序包依赖项" />
+    <Link Source="NHibernate 3.3.3.4001" Target="Iesi.Collections 3.2.0.1001" Category="程序包依赖项" />
+    <Link Source="03.Domain\FlappyBlog.Domain" Target="FluentNHibernate 1.4.0.0" Category="安装的程序包" />
+    <Link Source="FluentNHibernate 1.4.0.0" Target="NHibernate 3.3.3.4001" Category="程序包依赖项" />
+    <Link Source="NHibernate 3.3.3.4001" Target="Iesi.Collections 3.2.0.1001" Category="程序包依赖项" />
+    <Link Source="02.Application\FlappyBlog.Application" Target="FluentNHibernate 1.4.0.0" Category="安装的程序包" />
+    <Link Source="02.Application\FlappyBlog.Application" Target="NLog 2.1.0" Category="安装的程序包" />
+    <Link Source="Autofac.Extras.DynamicProxy2 3.0.3" Target="Autofac 3.3.0" Category="程序包依赖项" />
+    <Link Source="Autofac.Extras.DynamicProxy2 3.0.3" Target="Castle.Core 3.2.2" Category="程序包依赖项" />
+    <Link Source="FluentNHibernate 1.4.0.0" Target="NHibernate 3.3.3.4001" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.WebPages 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Mvc.zh-Hans 4.0.20710.0" Target="Microsoft.AspNet.Mvc 4.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Providers 1.2" Target="Microsoft.AspNet.Providers.Core 1.1" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Providers.Core.zh-Hans 1.1" Target="Microsoft.AspNet.Providers.Core 1.1" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Razor.zh-Hans 2.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.1.3" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.1.3" Target="WebGrease 1.6.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.Web.Optimization.zh-Hans 1.1.3" Target="Microsoft.AspNet.Web.Optimization 1.1.3" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.AspNet.WebPages.zh-Hans 2.0.20710.0" Target="Microsoft.AspNet.WebPages 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="Microsoft.Net.Http.zh-Hans 2.0.20710.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="程序包依赖项" />
+    <Link Source="NHibernate 3.3.3.4001" Target="Iesi.Collections 3.2.0.1001" Category="程序包依赖项" />
+    <Link Source="NHibernate.NLog 1.0.0" Target="NHibernate 3.3.3.4001" Category="程序包依赖项" />
+    <Link Source="NHibernate.NLog 1.0.0" Target="NLog 2.1.0" Category="程序包依赖项" />
+    <Link Source="WebGrease 1.6.0" Target="Antlr 3.4.1.9004" Category="程序包依赖项" />
+    <Link Source="WebGrease 1.6.0" Target="Newtonsoft.Json 6.0.1" Category="程序包依赖项" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Autofac.Extras.DynamicProxy2 3.0.3" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="FluentNHibernate 1.4.0.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.Mvc.zh-Hans 4.0.20710.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.Providers 1.2" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.Providers.Core.zh-Hans 1.1" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.Razor.zh-Hans 2.0.20710.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.Web.Optimization.zh-Hans 1.1.3" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.AspNet.WebPages.zh-Hans 2.0.20710.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="Microsoft.Net.Http.zh-Hans 2.0.20710.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="NHibernate.NLog 1.0.0" Category="安装的程序包" />
+    <Link Source="01.Presentation\FlappyBlog.Mvc" Target="System.Data.SQLite.Core 1.0.91.3" Category="安装的程序包" />
+  </Links>
+  <Categories>
+    <Category Id="项目" />
+    <Category Id="包" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="项目" ValueLabel="True">
+      <Condition Expression="HasCategory('项目')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="程序包依赖项" ValueLabel="True">
+      <Condition Expression="HasCategory('程序包依赖项')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>
