@@ -16,6 +16,7 @@ namespace FlappyBlog.Domain.Mappings
             Map(x => x.HomePage);
             Map(x => x.Approved);
             Map(x => x.CreatedDate);
+            Map(x => x.UpdatedDate);
 
             References(x => x.User);
             References(x => x.Post);

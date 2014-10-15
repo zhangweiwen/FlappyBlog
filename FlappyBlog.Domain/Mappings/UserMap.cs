@@ -17,6 +17,7 @@ namespace FlappyBlog.Domain.Mappings
             Map(x => x.PictrueUrl);
             Map(x => x.Description);
             Map(x => x.CreatedDate);
+            Map(x => x.UpdatedDate);
             Map(x => x.CommentCount);
 
             References(x => x.Role);

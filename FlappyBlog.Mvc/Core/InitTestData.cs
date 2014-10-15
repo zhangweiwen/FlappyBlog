@@ -28,7 +28,8 @@ namespace FlappyBlog.Mvc.Core
                     Name = tagName,
                     CreatedDate = DateTime.Now,
                     Description = tagName,
-                    PostCount = i
+                    PostCount = i,
+                    UpdatedDate = DateTime.Now.AddHours(i),
                 });
             }
         }

@@ -13,6 +13,7 @@ namespace FlappyBlog.Domain.Mappings
             Map(x => x.PostCount);
             Map(x => x.Description);
             Map(x => x.CreatedDate);
+            Map(x => x.UpdatedDate);
         }
     }
 }
